@@ -17,7 +17,7 @@ const Page = () => {
 
   const fetchProductDetails = async (productName) => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/product/name/:name/${productName}`);
+      const response = await axios.get(`http://localhost:8000/api/product/name/:name/${productName}`);
       setProduct(response.data);
     } catch (error) {
       console.error("Error fetching product details: ", error);

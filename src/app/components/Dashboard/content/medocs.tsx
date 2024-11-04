@@ -17,7 +17,7 @@ const Medocs = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/product/");
+      const response = await axios.get("http://localhost:8000/api/product/");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products: ", error);
@@ -35,7 +35,7 @@ const Medocs = () => {
   };
 
   return (
-    <section className="w-[1000px]">
+    <section className="w-[940px]">
       <div className="flex justify-between z-10">
         <div>
           <h3 className="text-[24px] font-bold">médicaments({products.length})</h3>

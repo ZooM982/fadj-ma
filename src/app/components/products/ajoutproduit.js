@@ -11,7 +11,7 @@ const ProduitAdd = () => {
   const [groupename, setGroupename] = useState();
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/product/')
+    axios.get('http://localhost:8000/api/product/')
       .then(res => {
         setProducts(res.data);
       })
@@ -21,7 +21,7 @@ const ProduitAdd = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/products/', {
+      await axios.post('http://localhost:8000/api/products/', {
         name,
         description,
         price,

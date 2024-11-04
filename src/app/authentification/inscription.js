@@ -33,7 +33,7 @@ const Inscription = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/users/register", formData);
+      const response = await axios.post("http://localhost:8000/api/users/register", formData);
 
       if (response.status !== 201) {
         throw new Error("Erreur lors de l'inscription");
