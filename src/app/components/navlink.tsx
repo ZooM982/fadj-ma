@@ -28,13 +28,13 @@ export default function NavLinks() {
         <a
           key={link.name}
           href={link.href}
-          className={`flex w-[50%] md:w-full h-[48px] items-center p-3 text-sm font-medium ${
+          className={`flex w-[45%] md:w-full h-[48px] items-center p-3 text-sm font-medium ${
             isActive(link.href)
               ? 'bg-[#009099] text-[#fff]' 
               : 'hover:bg-[#009099] hover:text-[#fff]'
           } `}
         >
-          <span className="ml-5 text-[24px]">{link.icon}</span>
+          <span className="md:ml-5 mx-auto text-[24px]">{link.icon}</span>
           <p className="hidden md:block ml-3 text-[14px]">{link.name}</p>
         </a>
       ))}

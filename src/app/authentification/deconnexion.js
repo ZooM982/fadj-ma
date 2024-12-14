@@ -41,10 +41,10 @@ const Logout = () => {
         <SlLogout />
       </span>
       <button
-        className="ml-3 text-[14px] h-full hidden md:block"
+        className="md:ml-3 mx-auto text-[14px] h-full"
         onClick={handleLogout}
       >
-        Déconnexion
+       <p className="hidden md:block">Déconnexion</p>
       </button>
     </div>
   );
