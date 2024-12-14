@@ -4,8 +4,8 @@ import TopnavLeft from "./topnav/topnavLeft";
 
 const Topnav = () => {
   return (
-    <section className="flex">
-      <div className="logo w-1/3 h-full flex">
+    <section className="grid md:flex">
+      <div className="w-full md:w-[372px] md:h-full">
         <Logo />
       </div>
       <div className="w-full h-16">

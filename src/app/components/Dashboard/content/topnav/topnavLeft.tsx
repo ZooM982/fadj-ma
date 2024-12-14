@@ -4,7 +4,7 @@ import Greeting from "./greeting"
 const TopnavLeft = () =>{
     return (
         <section className="w-full mx-auto">
-            <div className="flex justify-between bg-white h-16 px-10 py-2">
+            <div className="md:flex justify-between bg-white h-auto md:h-16 md:px-10 py-2">
             <div className="search">
                 <input type="text" placeholder="Rechercher n'importe quoi ici" className="border w-72 mx-5 my-1 p-1"/>
             </div>

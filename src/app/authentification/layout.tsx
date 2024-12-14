@@ -12,10 +12,10 @@ export default function LayoutAuth({
         <div>
           <Banners />
         </div>
-        <div className="flex justify-between w-2/5 mx-auto my-5">
+        <div className="flex justify-between w-[80%] md:w-2/5 mx-auto my-5">
           <Authlinks />
         </div>
-        <div className="flex-grow w-4/5 mx-auto md:overflow-y-auto ">{children}</div>
+        <div className="flex-grow w-4/5 mx-auto overflow-y-auto ">{children}</div>
       </div>
     </div>
   );

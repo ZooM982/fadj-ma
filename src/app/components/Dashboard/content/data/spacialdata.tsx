@@ -22,7 +22,7 @@ const Specialdata = () => {
   };
   
   return (
-    <div className="special-data my-5 flex flex-wrap text-[14px]">
+    <div className="special-data my-5 md:flex flex-wrap text-[14px]">
       <div className="spacial-card rounded-md  w-5/12 bg-[#fff] h-32 mx-auto my-5 border border-gray">
         <div className="flex justify-between p-2 px-6 border border-b-gray">
           <h2>Inventaire</h2>

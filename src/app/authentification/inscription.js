@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Assurez-vous d'installer react-icons
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+import toast from "react-hot-toast";
 
 const Inscription = () => {
   const [formData, setFormData] = useState({
@@ -31,15 +32,23 @@ const Inscription = () => {
       alert("Les mots de passe ne correspondent pas");
       return;
     }
-
+    toast.loading("Inscription en cours..."); 
     try {
       const response = await axios.post("http://localhost:8000/api/users/register", formData);
 
       if (response.status !== 201) {
+        toast.dismiss()
+        toast.error("Erreur lors de l'inscription")
         throw new Error("Erreur lors de l'inscription");
+      } else {
+        toast.dismiss()
+        toast.success("Inscription réussie ! 🎉");
+        setTimeout(() => {
+          router.push("/authentification/connection"); 
+        }, 3000);
+
       }
 
-      router.push("/authentification/connection"); // Redirection après inscription réussie
     } catch (error) {
       console.error("Erreur:", error);
       alert(`Erreur lors de l'inscription: ${error.message}`);
@@ -48,17 +57,17 @@ const Inscription = () => {
 
   return (
     <section>
-      <div>
+      <div className="mx-auto">
         <form
           action=""
-          className="w-[532px] mx-auto my-4 py-3"
+          className="md:w-[532px] mx-auto my-4 py-3"
           onSubmit={handleSubmit}
         >
           <label className="py-2 font-bold" htmlFor="">
             Vos coordonnées
           </label>
-          <div className="flex justify-between w-1/3">
-            <div className="flex">
+          <div className="flex justify-between md:w-1/3">
+            <div className="grid md:flex">
               <label className="py-3 pr-3 font-bold" htmlFor="coordonnées">
                 Homme
               </label>
@@ -72,7 +81,7 @@ const Inscription = () => {
                 onChange={handleChange}
               />
             </div>
-            <div className="flex">
+            <div className="grid md:flex">
               <label className="py-3 px-3 font-bold" htmlFor="coordonnées">
                 Femme
               </label>
@@ -87,7 +96,7 @@ const Inscription = () => {
               />
             </div>
           </div>
-          <div className="flex justify-between">
+          <div className="grid md:flex justify-between">
             <div className="grid py-2 w-full">
               <label className="py-2 font-bold" htmlFor="firstname">
                 Prénom
@@ -144,6 +153,7 @@ const Inscription = () => {
             <label className="py-2 font-bold" htmlFor="password">
               Mot de passe
             </label>
+            
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -154,7 +164,7 @@ const Inscription = () => {
             />
             <button
               type="button"
-              className="absolute inset-y-0 right-0 px-3 flex items-center"
+              className="absolute inset-y-0 right-0 px-3 grid md:flex items-center"
               onClick={() => setShowPassword(!showPassword)}
             >
               <span className="mt-[20px] ">{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
@@ -175,7 +185,7 @@ const Inscription = () => {
             />
             <button
               type="button"
-              className="absolute inset-y-0 right-0 px-3 flex items-center"
+              className="absolute inset-y-0 right-0 px-3 grid md:flex items-center"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
             >
               {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}

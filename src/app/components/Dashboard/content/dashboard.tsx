@@ -3,8 +3,8 @@ import Specialdata from "./data/spacialdata";
 
 const Dashboard = () => {
   return (
-    <section className="px-10 pb-10">
-      <div className="dashboard flex justify-between my-4 px-5">
+    <section className="md:px-10 md:pb-10 pb-2">
+      <div className="dashboard md:flex justify-between my-4 px-5">
         <div className="text-dash">
           <h1 className="text-[24px] font-semibold">Tableau de board</h1>
           <p className="font-light text-[14px]">

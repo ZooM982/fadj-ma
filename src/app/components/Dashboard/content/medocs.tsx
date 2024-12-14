@@ -10,6 +10,8 @@ import TableMedocs from "./data/Tablesmedoc";
 
 const Medocs = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // État de chargement
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     fetchProducts();
@@ -17,14 +19,15 @@ const Medocs = () => {
 
   const fetchProducts = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get("http://localhost:8000/api/product/");
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products: ", error);
+    } finally {
+      setIsLoading(false); // Arrêter le chargement
     }
   };
-
-  const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
     setModalOpen(true);
@@ -35,15 +38,17 @@ const Medocs = () => {
   };
 
   return (
-    <section className="w-[940px]">
-      <div className="flex justify-between z-10">
+    <section className="md:w-[940px] pt-5 md:pt-0">
+      <div className="grid md:flex justify-between z-10">
         <div>
-          <h3 className="text-[24px] font-bold">médicaments({products.length})</h3>
+          <h3 className="text-[24px] font-bold">
+            médicaments ({products.length})
+          </h3>
           <p className="text-md text-[14px]">
-            liste des médicaments dispponible à la vente
+            liste des médicaments disponibles à la vente
           </p>
         </div>
-        <div className="rounded-md px-5 border border-[#000] w-[246px] h-[46px] bg-[#fff]  ">
+        <div className="rounded-md px-5 border border-[#000] w-[246px] h-[46px] bg-[#fff]">
           <button onClick={openModal} className="text-[14px] flex my-auto h-full">
             <span className="my-auto">
               <FaPlus />
@@ -52,8 +57,8 @@ const Medocs = () => {
           </button>
         </div>
       </div>
-      <div className="flex justify-between my-4 z-10">
-        <div className="w-[340px] h-[38px] border rounded-md flex bg-[#fff] ">
+      <div className="grid md:flex justify-between my-4 z-10">
+        <div className="w-[96%] md:w-[340px] h-[38px] border rounded-md flex bg-[#fff]">
           <input
             type="text"
             placeholder="Rechercher dans l'inventaire des médicaments."
@@ -63,15 +68,15 @@ const Medocs = () => {
             <FaSearch />
           </span>
         </div>
-        <div className="flex">
+        <div className="flex my-5 md:my-0">
           <span className="text-[24px] my-auto mr-4">
             <MdFilterAlt />
           </span>
-          <div className="rounded-md border border-[#000] w-[246px] h-[46px] bg-[#fff]  ">
+          <div className="rounded-md border border-[#000] w-[90%] md:w-[246px] h-[46px] bg-[#fff]">
             <select
               name=""
               id=""
-              className="text-sm px-5 outline-none w-full h-full bg-inherit rounded-md "
+              className="text-sm px-5 outline-none w-full h-full bg-inherit rounded-md"
             >
               <option value="" className=" text-[#000]">
                 Selectionnez un groupe
@@ -89,19 +94,28 @@ const Medocs = () => {
                 Maladie cardiovasculaire
               </option>
               <option value="" className=" text-[#000]">
-                Produir à base de plantes
+                Produit à base de plantes
               </option>
               <option value="" className=" text-[#000]">
-                Crème et pommades cutanée
+                Crèmes et pommades cutanées
               </option>
               <option value="" className=" text-[#000]">
-                Gel et sprays anti-inflammatoire
+                Gels et sprays anti-inflammatoires
               </option>
             </select>
           </div>
         </div>
       </div>
-     <TableMedocs />
+
+      {/* Indicateur de chargement */}
+      {isLoading ? (
+        <div className="text-center my-4">
+          <p>Chargement des produits...</p>
+        </div>
+      ) : (
+        <TableMedocs />
+      )}
+
       <Modal isOpen={modalOpen} onClose={closeModal}></Modal>
     </section>
   );

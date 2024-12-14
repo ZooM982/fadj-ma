@@ -3,15 +3,16 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const Connection = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
-  const [error, setError] = useState('');
-
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false); 
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -20,31 +21,49 @@ const Connection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Réinitialiser les erreurs
+    setError("");
+    setIsSubmitting(true); // Déclenche la soumission
+
+    toast.loading("Connexion en cours...");
 
     try {
-      const response = await axios.post('http://localhost:8000/api/users/login', formData);
+      const response = await axios.post(
+        "http://localhost:8000/api/users/login",
+        formData
+      );
 
       if (response.status === 200) {
-        router.push('/Admin/dashboard/'); // Redirection après connexion réussie
+        toast.dismiss();
+        toast.success("Connexion réussie ! 🎉");
+
+        // Sauvegarder le token dans localStorage
+        localStorage.setItem('token', response.data.token);
+
+        setTimeout(() => {
+          router.push("/Admin/dashboard/");
+        }, 3000); 
       } else {
-        throw new Error('Identifiants invalides');
+        throw new Error("Identifiants invalides");
       }
     } catch (error) {
-      console.error('Erreur:', error);
-      setError('Identifiants invalides ou problème serveur.'); // Afficher l'erreur
+      toast.dismiss();
+      toast.error("Échec de la connexion. Vérifiez vos informations.");
+      setError("Identifiants invalides ou problème serveur.");
+      console.error("Erreur:", error);
+    } finally {
+      setIsSubmitting(false); 
     }
   };
 
   return (
     <section>
       <div className="mx-auto">
-        <form action="" className="w-[532px] mx-auto mb-5" onSubmit={handleSubmit}>
-          {error && (
-            <div className="text-red-500 mb-4">
-              {error}
-            </div>
-          )}
+        <form
+          action=""
+          className="md:w-[532px] mx-auto mb-5"
+          onSubmit={handleSubmit}
+        >
+          {error && <div className="text-red-500 mb-4">{error}</div>}
           <div className="grid">
             <label htmlFor="email">Adresse e-mail</label>
             <input
@@ -71,8 +90,12 @@ const Connection = () => {
             <button type="button">Mot de passe oublié</button>
           </div>
           <div className="h-[46px] text-center rounded-md border border-gray-300 bg-[#a7dbf5] mx-auto py-1">
-            <button type="submit" className="my-1">
-              Se connecter
+            <button 
+              type="submit" 
+              className="my-1"
+              disabled={isSubmitting} // Désactive le bouton pendant la soumission
+            >
+              {isSubmitting ? "Connexion..." : "Se connecter"} {/* Affiche un texte différent pendant la soumission */}
             </button>
           </div>
         </form>

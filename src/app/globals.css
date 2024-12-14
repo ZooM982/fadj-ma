@@ -4,18 +4,9 @@
 
 body{
   background-color: #dddcd9;
-  height: fill;
-  width: 100%;
 }
-.sidebar{
-  background-color: #283342;
-  color: #fff;
-  height: fill;
-}
-.logo{
-  width: 288px;
-  color: #fff;
-}
+
+
 .post{
   color: #f8d202;
 }

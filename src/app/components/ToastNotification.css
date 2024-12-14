@@ -1,0 +1,34 @@
+/* ToastNotification.css */
+.toast-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+  }
+  
+  .toast-custom.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+  }
+  
+  .toast-custom.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .toast-progress-bar {
+    height: 4px;
+    background: #fff;
+    animation: progress 4s linear forwards;
+  }
+  
+  @keyframes progress {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0;
+    }
+  }
+  

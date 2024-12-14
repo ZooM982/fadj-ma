@@ -1,18 +1,20 @@
-import Profil from "./Dashboard/navigations/profil"
+import Profil from "./Dashboard/navigations/profil";
 import NavLinks from "./navlink";
-import Logout from "../authentification/deconnexion"
+import Logout from "../authentification/deconnexion";
 
 const Sidebar = () => {
   return (
-    <div className="sidebar w-full h-full md:w-72">
+    <div className="w-full h-full md:w-72 bg-[#283342] text-white ">
       <div className="">
         <Profil />
       </div>
-      <div className="focus:bg-[red] ">
+      <div className="flex justify-between md:justify-stretch  md:grid">
+      <div className="w-[70%] sm:w-[100%] ">
         <NavLinks />
       </div>
-      <div className="mt-[300px]">
+      <div className="md:mt-[300px]">
         <Logout />
+      </div>
       </div>
     </div>
   );

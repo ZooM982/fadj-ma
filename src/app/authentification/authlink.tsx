@@ -20,11 +20,11 @@ export default function Authlinks() {
           <a
             key={link.name}
             href={link.href}
-            className={`flex h-[46px] rounded-md w-[253px] border items-center ${isActive(link.href)
+            className={`flex h-[46px] rounded-md w-[45%] md:w-[253px] border  items-center ${isActive(link.href)
               ? 'bg-[#a7dbf5] text-[#000]' 
               : 'hover:bg-[#a7dbf5] hover:text-[#000]'
           }`}>
-            <button className="ml-3 text-[14px] rounded-md  h-12 w-full  hover:text-[#fff]md:flex-none">{link.name}</button>
+            <button className="md:ml-3 text-[14px] rounded-md w-full text-center p-1  h-12 md:w-full  hover:text-[#fff]md:flex-none">{link.name}</button>
           </a>
         );
       })}

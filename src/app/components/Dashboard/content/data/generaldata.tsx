@@ -25,8 +25,8 @@ const Generaldata = () => {
   };
   
   return (
-    <div className="general-data flex">
-      <div className="card bg-[#fff] rounded-md w-[212px] mx-auto h-[152px] border border-[#2cb381]">
+    <div className="general-data md:flex">
+      <div className="card bg-[#fff] rounded-md w-[80%] md:w-[212px] my-2 md:my-0 mx-auto h-[152px] border border-[#2cb381]">
         <div className="card-body text-center">
           <div className="icon text-center mx-auto my-2 w-1/4 ">
             <span className="text-5xl font-bold text-[#2cb381]">
@@ -45,7 +45,7 @@ const Generaldata = () => {
           </button>
         </div>
       </div>
-      <div className="card bg-[#fff] rounded-md w-[212px] mx-auto h-[152px] border border-[#f8d202]">
+      <div className="card bg-[#fff] rounded-md w-[80%] md:w-[212px] my-2 md:my-0 mx-auto h-[152px] border border-[#f8d202]">
         <div className="card-body text-center">
           <div className="icon text-center mx-auto my-2 w-1/4 ">
             <span className="text-5xl font-bold text-[#f8d202]">
@@ -64,7 +64,7 @@ const Generaldata = () => {
           </button>
         </div>
       </div>
-      <div className="card bg-[#fff] rounded-md w-[212px] mx-auto h-[152px] border border-[#03a9f5]">
+      <div className="card bg-[#fff] rounded-md w-[80%] md:w-[212px] my-2 md:my-0 mx-auto h-[152px] border border-[#03a9f5]">
         <div className="card-body text-center">
           <div className="icon text-center mx-auto my-2 w-1/4 ">
             <span className="text-5xl font-bold text-[#03a9f5]">
@@ -83,7 +83,7 @@ const Generaldata = () => {
           </button>
         </div>
       </div>
-      <div className="card bg-[#fff] rounded-md w-[212px] mx-auto h-[152px] border border-[#f1574e]">
+      <div className="card bg-[#fff] rounded-md w-[80%] md:w-[212px] my-2 md:my-0 mx-auto h-[152px] border border-[#f1574e]">
         <div className="card-body text-center">
           <div className="icon text-center mx-auto my-2 w-1/4 ">
             <span className="text-5xl font-bold text-[#f1574e]">

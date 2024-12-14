@@ -49,7 +49,7 @@ const TableMedocs = () => {
   return (
     <section>
       <div className="w-full bg-[#fff] text-left">
-        <table className="mx-auto w-full">
+        <table className="mx-auto w-full overflow-x-scroll">
           <thead className="w-1/5">
             <tr className="border-t-[#000]">
               <th className="p-1">Nom du médicament</th>
