@@ -36,13 +36,13 @@ const Logout = () => {
   };
 
   return (
-    <div className="h-[48px] me-3 md:me-0 flex items-center bg-inheritp-3 text-sm font-medium hover:bg-[#009099] bg-[#009099]-ative focus:bg-[#009099] hover:text-[#fff] md:flex-none">
+    <div onClick={handleLogout} className="h-[48px] me-3 md:me-0 flex items-center bg-inheritp-3 text-sm font-medium hover:bg-[#009099] bg-[#009099]-ative focus:bg-[#009099] hover:text-[#fff] md:flex-none">
       <span className="md:ml-5 text-[24px]">
         <SlLogout />
       </span>
       <button
         className="md:ml-3 mx-auto text-[14px] h-full"
-        onClick={handleLogout}
+        
       >
        <p className="hidden md:block">Déconnexion</p>
       </button>
