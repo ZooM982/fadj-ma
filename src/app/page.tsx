@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="">
       <LayoutAuth>
-        <h1 className="hidden">Bienvenue sur la page d'accueil</h1>
+        <h1 className="hidden">Bienvenue sur la page</h1>
       </LayoutAuth>
     </main>
   );
