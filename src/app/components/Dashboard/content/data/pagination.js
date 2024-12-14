@@ -6,13 +6,13 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
 
   return (
     <nav className="grid md:flex justify-between items-center w-full">
-      <div className="py-2 my-auto">
+      <div className="py-2 my-auto mx-auto md:mx-0">
         <p>
           Affichage de {currentPage === 1 ? 1 : (currentPage - 1) * itemsPerPage + 1} à{" "}
           {Math.min(currentPage * itemsPerPage, totalItems)} sur {totalItems}{" "}
         </p>
       </div>
-      <div className="flex space-x-2 flex ">
+      <div className="flex space-x-2 mx-auto md:mx-0 ">
         <button
           onClick={() => paginate("prev")}
           disabled={currentPage === 1}
