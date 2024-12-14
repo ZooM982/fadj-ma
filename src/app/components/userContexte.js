@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
@@ -14,30 +14,36 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const token = localStorage.getItem('token');  
+      const token = localStorage.getItem("token");
       if (!token) {
-        console.error('Token manquant');
+        console.error("Token manquant");
         return;
       }
 
       try {
-        const response = await fetch('http://localhost:8000/api/users/profile', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`,  // Envoie le token dans les headers
-          },
-        });
+        const response = await fetch(
+          "https://fadj-ma-server2.onrender.com/api/users/profile",
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`, // Envoie le token dans les headers
+            },
+          }
+        );
 
         if (!response.ok) {
-          throw new Error('Utilisateur non authentifié');
+          throw new Error("Utilisateur non authentifié");
         }
 
         const data = await response.json();
-        setUser(data);  // Sauvegarde les informations utilisateur dans le state
+        setUser(data); // Sauvegarde les informations utilisateur dans le state
       } catch (error) {
-        console.error('Erreur de récupération des informations utilisateur:', error);
+        console.error(
+          "Erreur de récupération des informations utilisateur:",
+          error
+        );
       } finally {
-        setIsLoading(false);  // Indiquer la fin du chargement
+        setIsLoading(false); // Indiquer la fin du chargement
       }
     };
 

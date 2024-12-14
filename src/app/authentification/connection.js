@@ -12,7 +12,7 @@ const Connection = () => {
   });
 
   const [error, setError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -28,7 +28,7 @@ const Connection = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/users/login",
+        "https://fadj-ma-server2.onrender.com/api/users/login",
         formData
       );
 
@@ -37,11 +37,11 @@ const Connection = () => {
         toast.success("Connexion réussie ! 🎉");
 
         // Sauvegarder le token dans localStorage
-        localStorage.setItem('token', response.data.token);
+        localStorage.setItem("token", response.data.token);
 
         setTimeout(() => {
           router.push("/Admin/dashboard/");
-        }, 3000); 
+        }, 3000);
       } else {
         throw new Error("Identifiants invalides");
       }
@@ -51,7 +51,7 @@ const Connection = () => {
       setError("Identifiants invalides ou problème serveur.");
       console.error("Erreur:", error);
     } finally {
-      setIsSubmitting(false); 
+      setIsSubmitting(false);
     }
   };
 
@@ -90,12 +90,13 @@ const Connection = () => {
             <button type="button">Mot de passe oublié</button>
           </div>
           <div className="h-[46px] text-center rounded-md border border-gray-300 bg-[#a7dbf5] mx-auto py-1">
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="my-1"
               disabled={isSubmitting} // Désactive le bouton pendant la soumission
             >
-              {isSubmitting ? "Connexion..." : "Se connecter"} {/* Affiche un texte différent pendant la soumission */}
+              {isSubmitting ? "Connexion..." : "Se connecter"}{" "}
+              {/* Affiche un texte différent pendant la soumission */}
             </button>
           </div>
         </form>

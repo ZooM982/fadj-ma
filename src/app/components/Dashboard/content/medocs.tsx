@@ -20,7 +20,9 @@ const Medocs = () => {
   const fetchProducts = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get("http://localhost:8000/api/product/");
+      const response = await axios.get(
+        "https://fadj-ma-server2.onrender.com/api/product/"
+      );
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products: ", error);
@@ -49,7 +51,10 @@ const Medocs = () => {
           </p>
         </div>
         <div className="rounded-md px-5 border border-[#000] w-[246px] h-[46px] bg-[#fff]">
-          <button onClick={openModal} className="text-[14px] flex my-auto h-full">
+          <button
+            onClick={openModal}
+            className="text-[14px] flex my-auto h-full"
+          >
             <span className="my-auto">
               <FaPlus />
             </span>{" "}

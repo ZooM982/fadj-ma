@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; 
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 const Inscription = () => {
@@ -32,23 +32,24 @@ const Inscription = () => {
       alert("Les mots de passe ne correspondent pas");
       return;
     }
-    toast.loading("Inscription en cours..."); 
+    toast.loading("Inscription en cours...");
     try {
-      const response = await axios.post("http://localhost:8000/api/users/register", formData);
+      const response = await axios.post(
+        "https://fadj-ma-server2.onrender.com/api/users/register",
+        formData
+      );
 
       if (response.status !== 201) {
-        toast.dismiss()
-        toast.error("Erreur lors de l'inscription")
+        toast.dismiss();
+        toast.error("Erreur lors de l'inscription");
         throw new Error("Erreur lors de l'inscription");
       } else {
-        toast.dismiss()
+        toast.dismiss();
         toast.success("Inscription réussie ! 🎉");
         setTimeout(() => {
-          router.push("/authentification/connection"); 
+          router.push("/authentification/connection");
         }, 3000);
-
       }
-
     } catch (error) {
       console.error("Erreur:", error);
       alert(`Erreur lors de l'inscription: ${error.message}`);
@@ -153,7 +154,7 @@ const Inscription = () => {
             <label className="py-2 font-bold" htmlFor="password">
               Mot de passe
             </label>
-            
+
             <input
               type={showPassword ? "text" : "password"}
               name="password"
@@ -167,7 +168,9 @@ const Inscription = () => {
               className="absolute inset-y-0 right-0 px-3 grid md:flex items-center"
               onClick={() => setShowPassword(!showPassword)}
             >
-              <span className="mt-[20px] ">{showPassword ? <FaEyeSlash /> : <FaEye />}</span>
+              <span className="mt-[20px] ">
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </span>
             </button>
           </div>
           <div className="grid py-2 w-full relative">

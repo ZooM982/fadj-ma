@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Pagination from "./pagination";
-import { useRouter } from 'next/navigation'; // Utiliser useRouter depuis next/navigation
+import { useRouter } from "next/navigation"; // Utiliser useRouter depuis next/navigation
 import axios from "axios";
 
 const TableMedocs = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(8); 
+  const [itemsPerPage] = useState(8);
 
   const router = useRouter();
 
@@ -18,7 +18,9 @@ const TableMedocs = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/product/");
+      const response = await axios.get(
+        "https://fadj-ma-server2.onrender.com/api/product/"
+      );
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products: ", error);
@@ -29,12 +31,14 @@ const TableMedocs = () => {
     router.push(`/products/${name}`);
   };
 
-
   // Fonction pour paginer les produits
   const paginate = (pageNumber) => {
     if (pageNumber === "prev" && currentPage > 1) {
       setCurrentPage(currentPage - 1);
-    } else if (pageNumber === "next" && currentPage < Math.ceil(products.length / itemsPerPage)) {
+    } else if (
+      pageNumber === "next" &&
+      currentPage < Math.ceil(products.length / itemsPerPage)
+    ) {
       setCurrentPage(currentPage + 1);
     } else {
       setCurrentPage(pageNumber);

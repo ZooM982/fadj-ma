@@ -1,9 +1,8 @@
-"use client"
-
+"use client";
 
 import { BiSolidChevronsRight } from "react-icons/bi";
 import { useState, useEffect } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 const Specialdata = () => {
   const [products, setProducts] = useState([]);
@@ -14,13 +13,15 @@ const Specialdata = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/product/");
+      const response = await axios.get(
+        "https://fadj-ma-server2.onrender.com/api/product/"
+      );
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products: ", error);
     }
   };
-  
+
   return (
     <div className="special-data my-5 md:flex flex-wrap text-[14px]">
       <div className="spacial-card rounded-md  w-5/12 bg-[#fff] h-32 mx-auto my-5 border border-gray">
@@ -39,7 +40,7 @@ const Specialdata = () => {
             <h3>Nombre total de medicaments</h3>
           </div>
           <div>
-          <span className="font-bold text-2xl">24</span>
+            <span className="font-bold text-2xl">24</span>
             <h3>Groupes de médecine</h3>
           </div>
         </div>
@@ -56,11 +57,11 @@ const Specialdata = () => {
         </div>
         <div className="flex justify-between p-2 px-6">
           <div>
-          <span className="font-bold text-2xl">70 856</span>
+            <span className="font-bold text-2xl">70 856</span>
             <h3>Quantité de medicaments</h3>
           </div>
           <div>
-          <span className="font-bold text-2xl">5 288</span>
+            <span className="font-bold text-2xl">5 288</span>
             <h3>Facture générées</h3>
           </div>
         </div>
@@ -77,12 +78,13 @@ const Specialdata = () => {
         </div>
         <div className="flex justify-between p-2 px-6">
           <div>
-          <span className="font-bold text-2xl">04</span>
+            <span className="font-bold text-2xl">04</span>
             <h3>Nombre total de fournisseur</h3>
           </div>
           <div>
-          <span className="font-bold text-2xl">05</span>
-          <h3>Nombre total d`utilistauers</h3></div>
+            <span className="font-bold text-2xl">05</span>
+            <h3>Nombre total d`utilistauers</h3>
+          </div>
         </div>
       </div>
       <div className="spacial-card rounded-md  w-5/12 bg-[#fff] h-32 mx-auto my-5 border border-gray">
@@ -97,11 +99,13 @@ const Specialdata = () => {
         </div>
         <div className="flex justify-between p-2 px-6">
           <div>
-          <span className="font-bold text-2xl">845</span>
-            <h3>Nombre total de clients</h3></div>
+            <span className="font-bold text-2xl">845</span>
+            <h3>Nombre total de clients</h3>
+          </div>
           <div>
-          <span className="font-bold text-2xl">Adalimumab</span>
-            <h3>Article frequement consulté</h3></div>
+            <span className="font-bold text-2xl">Adalimumab</span>
+            <h3>Article frequement consulté</h3>
+          </div>
         </div>
       </div>
     </div>

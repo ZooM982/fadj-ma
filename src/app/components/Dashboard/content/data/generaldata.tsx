@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { FaMoneyBills } from "react-icons/fa6";
 import { LiaFirstAidSolid } from "react-icons/lia";
@@ -6,7 +6,7 @@ import { IoWarningOutline } from "react-icons/io5";
 import { BsShieldPlus } from "react-icons/bs";
 import { BiSolidChevronsRight } from "react-icons/bi";
 import { useState, useEffect } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 const Generaldata = () => {
   const [products, setProducts] = useState([]);
@@ -17,13 +17,15 @@ const Generaldata = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/product/");
+      const response = await axios.get(
+        "https://fadj-ma-server2.onrender.com/api/product/"
+      );
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching products: ", error);
     }
   };
-  
+
   return (
     <div className="general-data md:flex">
       <div className="card bg-[#fff] rounded-md w-[80%] md:w-[212px] my-2 md:my-0 mx-auto h-[152px] border border-[#2cb381]">
