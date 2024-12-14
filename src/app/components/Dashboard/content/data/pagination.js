@@ -5,7 +5,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   return (
-    <nav className="flex justify-between items-center w-full">
+    <nav className="grid md:flex justify-between items-center w-full">
       <div className="py-2 my-auto">
         <p>
           Affichage de {currentPage === 1 ? 1 : (currentPage - 1) * itemsPerPage + 1} à{" "}
