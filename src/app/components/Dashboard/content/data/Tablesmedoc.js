@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import Pagination from "./pagination";
-import { useRouter } from "next/navigation"; // Utiliser useRouter depuis next/navigation
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 const TableMedocs = () => {
   const [products, setProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(8);
+  const [itemsPerPage] = useState(6);
 
   const router = useRouter();
 
@@ -51,37 +51,46 @@ const TableMedocs = () => {
   const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
-    <section>
-      <div className="w-full bg-[#fff] text-left">
-        <table className="mx-auto w-full overflow-x-scroll">
-          <thead className="w-1/5">
-            <tr className="border-t-[#000]">
-              <th className="p-1">Nom du médicament</th>
-              <th className="p-1">ID du médicament</th>
-              <th className="p-1">Nom de groupe</th>
-              <th className="p-1">Stock en quantité</th>
-              <th className="p-1">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems.map((product) => (
-              <tr key={product._id} className="border border-t-[#000] h-[34px]">
-                <td className="p-1">{product.name}</td>
-                <td className="p-1">{product._id}</td>
-                <td className="p-1">{product.groupename}</td>
-                <td className="p-1">{product.quantity}</td>
-                <td className="flex p-1">
-                  <button onClick={() => handleViewDetails(product.name)}>
-                    Voir tous les détails
-                  </button>
-                </td>
+    <section className="">
+      <div className="w-full h-auto bg-[#fff] text-left">
+        {/* Conteneur défilable */}
+        <div className="overflow-x-auto ">
+          <table className="mx-auto w-full min-w-[600px]">
+            <thead>
+              <tr className="border-t-[#000]">
+                <th className="p-2 text-left">Nom du médicament</th>
+                <th className="p-2 text-left">ID du médicament</th>
+                <th className="p-2 text-left">Nom de groupe</th>
+                <th className="p-2 text-left">Stock en quantité</th>
+                <th className="p-2 text-left">Action</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {currentItems.map((product) => (
+                <tr
+                  key={product._id}
+                  className="border border-t-[#000] h-[40px]"
+                >
+                  <td className="p-2">{product.name}</td>
+                  <td className="p-2">{product._id}</td>
+                  <td className="p-2">{product.groupename}</td>
+                  <td className="p-2">{product.quantity}</td>
+                  <td className="p-2">
+                    <button
+                      onClick={() => handleViewDetails(product.name)}
+                      className="text-blue-600 underline"
+                    >
+                      Voir tous les détails
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       {/* Pagination */}
-      <div className="mt-4 flex justify-end">
+      <div className=" flex justify-end">
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={products.length}

@@ -40,7 +40,7 @@ const Medocs = () => {
   };
 
   return (
-    <section className="md:w-[940px] pt-5 md:pt-0">
+    <section className="md:w-[930px] pt-5 md:pt-0">
       <div className="grid md:flex justify-between z-10">
         <div>
           <h3 className="text-[24px] font-bold">
@@ -114,7 +114,7 @@ const Medocs = () => {
 
       {/* Indicateur de chargement */}
       {isLoading ? (
-        <div className="text-center my-4">
+        <div className="text-center">
           <p>Chargement des produits...</p>
         </div>
       ) : (

@@ -44,7 +44,7 @@ const ProduitAdd = () => {
     <div className="z-40 w-full">
       <form
         onSubmit={handleSubmit}
-        className="mx-auto h-52 bg-white-700 flex flex-wrap"
+        className="mx-auto md:h-52 bg-white-700 flex flex-wrap"
       >
         <input
           className="border rounded-md w-[220px] mx-auto my-2 px-3 h-[50px]"
