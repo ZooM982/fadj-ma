@@ -90,7 +90,7 @@ const TableMedocs = () => {
         </div>
       </div>
       {/* Pagination */}
-      <div className=" flex justify-end">
+      <div className=" md:flex justify-end">
         <Pagination
           itemsPerPage={itemsPerPage}
           totalItems={products.length}
