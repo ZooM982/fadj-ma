@@ -23,9 +23,9 @@ const Specialdata = () => {
   };
 
   return (
-    <div className="special-data my-5 md:flex flex-wrap text-[14px]">
-      <div className="spacial-card rounded-md  w-5/12 bg-[#fff] h-32 mx-auto my-5 border border-gray">
-        <div className="flex justify-between p-2 px-6 border border-b-gray">
+    <div className=" my-5 md:flex flex-wrap text-[14px]">
+      <div className="w-[95%] mx-auto md:w-[45%] rounded-md  bg-[#fff] h-35 mx-auto my-5 border border-gray">
+        <div className="flex justify-between md:p-2 md:px-6 p-2 border border-b-gray">
           <h2>Inventaire</h2>
           <button className="flex">
             Allez dans la Configuration{" "}
@@ -34,7 +34,7 @@ const Specialdata = () => {
             </span>
           </button>
         </div>
-        <div className="flex justify-between p-2 px-6">
+        <div className="flex justify-between md:p-2 md:px-6 p-2">
           <div>
             <span className="font-bold text-2xl">{products.length}</span>
             <h3>Nombre total de medicaments</h3>
@@ -45,8 +45,8 @@ const Specialdata = () => {
           </div>
         </div>
       </div>
-      <div className="spacial-card rounded-md  w-5/12 bg-[#fff] h-32 mx-auto my-5 border border-gray">
-        <div className="flex justify-between p-2 px-6 border border-b-gray">
+      <div className="w-[95%] mx-auto md:w-[45%] rounded-md  bg-[#fff] h-35 mx-auto my-5 border border-gray">
+        <div className="flex justify-between md:p-2 md:px-6 p-2 border border-b-gray">
           <h2>Rapport rapide</h2>
           <select name="" id="">
             <option value="">Janvier</option>
@@ -55,7 +55,7 @@ const Specialdata = () => {
             <option value="">Avril</option>
           </select>
         </div>
-        <div className="flex justify-between p-2 px-6">
+        <div className="flex justify-between md:p-2 md:px-6 p-2">
           <div>
             <span className="font-bold text-2xl">70 856</span>
             <h3>Quantité de medicaments</h3>
@@ -66,8 +66,8 @@ const Specialdata = () => {
           </div>
         </div>
       </div>
-      <div className="spacial-card rounded-md  w-5/12 bg-[#fff] h-32 mx-auto my-5 border border-gray">
-        <div className="flex justify-between p-2 px-6 border border-b-gray">
+      <div className="w-[95%] mx-auto md:w-[45%] rounded-md  bg-[#fff] h-35 mx-auto my-5 border border-gray">
+        <div className="flex justify-between md:p-2 md:px-6 p-2 border border-b-gray">
           <h2>Ma pharmacie</h2>
           <button className="flex">
             Accédez à la gestion des utilisateurs{" "}
@@ -76,7 +76,7 @@ const Specialdata = () => {
             </span>
           </button>
         </div>
-        <div className="flex justify-between p-2 px-6">
+        <div className="flex justify-between md:p-2 md:px-6 p-2">
           <div>
             <span className="font-bold text-2xl">04</span>
             <h3>Nombre total de fournisseur</h3>
@@ -87,8 +87,8 @@ const Specialdata = () => {
           </div>
         </div>
       </div>
-      <div className="spacial-card rounded-md  w-5/12 bg-[#fff] h-32 mx-auto my-5 border border-gray">
-        <div className="flex justify-between p-2 px-6 border border-b-gray ">
+      <div className="w-[95%] mx-auto md:w-[45%] rounded-md  bg-[#fff] h-35 mx-auto my-5 border border-gray">
+        <div className="flex justify-between md:p-2 md:px-6 p-2 border border-b-gray ">
           <h2>Clients</h2>
           <button className="flex">
             Allez à la page clients{" "}
@@ -97,7 +97,7 @@ const Specialdata = () => {
             </span>
           </button>
         </div>
-        <div className="flex justify-between p-2 px-6">
+        <div className="flex justify-between md:p-2 md:px-6 p-2">
           <div>
             <span className="font-bold text-2xl">845</span>
             <h3>Nombre total de clients</h3>
