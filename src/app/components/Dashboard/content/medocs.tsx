@@ -10,7 +10,7 @@ import TableMedocs from "./data/Tablesmedoc";
 
 const Medocs = () => {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // État de chargement
+  const [isLoading, setIsLoading] = useState(true); 
   const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Medocs = () => {
     } catch (error) {
       console.error("Error fetching products: ", error);
     } finally {
-      setIsLoading(false); // Arrêter le chargement
+      setIsLoading(false);
     }
   };
 
@@ -40,7 +40,7 @@ const Medocs = () => {
   };
 
   return (
-    <section className="md:w-[930px] pt-5 md:pt-0">
+    <section className="md:w-[100%] pt-5 md:pt-0 ">
       <div className="grid md:flex justify-between z-10">
         <div>
           <h3 className="text-[24px] font-bold">

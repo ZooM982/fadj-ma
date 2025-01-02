@@ -23,19 +23,19 @@ export default function NavLinks() {
   };
 
   return (
-    <div className='flex justify-between md:grid'>
+    <div className='flex md:w-full justify-between md:grid'>
       {links.map((link) => (
         <a
           key={link.name}
           href={link.href}
-          className={`flex w-[45%] md:w-full h-[48px] items-center p-3 text-sm font-medium ${
+          className={`flex w-[45%] md:w-[100%] h-[48px]  items-center p-3 text-sm font-medium ${
             isActive(link.href)
               ? 'bg-[#009099] text-[#fff]' 
               : 'hover:bg-[#009099] hover:text-[#fff]'
           } `}
         >
           <span className="md:ml-5 mx-auto text-[24px]">{link.icon}</span>
-          <p className="hidden md:block ml-3 text-[14px]">{link.name}</p>
+          <p className="hidden md:block md:ms-6 md:me-[90px] text-[14px]">{link.name}</p>
         </a>
       ))}
     </div>
