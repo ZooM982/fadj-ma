@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -18,9 +22,29 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/translate.js", "src/app/components/translatepage.js", "src/app/components/Dashboard/modal/modal.tsx", "src/app/components/Dashboard/content/data/Tablesmedoc.js", "src/app/authentification/connection.js", "src/app/authentification/inscription.js", "src/app/components/Dashboard/detailsProduit.jsx", "src/app/components/Dashboard/navigations/profil.tsx", "src/app/components/Dashboard/navigations/profil.tsx", "src/QueryClientProvider.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/components/translate.js",
+    "src/app/components/translatepage.js",
+    "src/app/components/Dashboard/modal/modal.tsx",
+    "src/app/components/Dashboard/content/data/Tablesmedoc.js",
+    "src/app/authentification/connection.js",
+    "src/app/authentification/inscription.js",
+    "src/app/components/Dashboard/detailsProduit.jsx",
+    "src/app/components/Dashboard/navigations/profil.tsx",
+    "src/app/components/Dashboard/navigations/profil.tsx",
+    "src/QueryClientProvider.js"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
